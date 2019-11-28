@@ -1,7 +1,7 @@
 /**
  * Item
  */
-public class Item {
+public abstract class Item {
 
     protected static int code;
     protected int itemCode;
@@ -13,6 +13,7 @@ public class Item {
     protected Donor donor;
     protected Buyer buyer;
     protected Person person;
+    protected Charity charity;
 
     private static int genItemCode(){
         code++;
@@ -27,23 +28,26 @@ public class Item {
         this.status = "unsold";
         this.name   = "unknown";
         this.donor  = null;
-        this.buyer  = null;  
+        this.buyer  = null;
+        this.charity = null;  
     }
 
     public Item(String name, double startPrice, double reserveValue,
-                String status, Donor donor, Buyer buyer){
+                String status, Donor donor, Buyer buyer, Charity charity){
         this();
         this.name = name;
         this.startPrice = startPrice;
         this.reserveValue = reserveValue;
         this.status = status;
         this.donor = donor;
-        this.buyer = buyer; 
+        this.buyer = buyer;
+        this.charity = charity; 
     }
 
-    public Item(String name){
+    public Item(String name, Charity charity){
         this();
         this.name = name;
+        this.charity = charity;
     }
 
     public Item(String name, double startPrice){
@@ -62,6 +66,11 @@ public class Item {
     public void printDetails(){
         System.out.println("Item Code: "   + genItemCode());
         System.out.println("Item: "        + getName());
+        if(getCharity() != null){
+            System.out.println("Benefitting Charity: " + getCharity().getName());
+        }else{
+            System.out.println("Benefitting Charity: hasn't been assigned.");
+        }
         System.out.println("Start Price: £"+ getStartPrice());
         System.out.println("Final Price: £"+ getFinalPrice());
         System.out.println("Status: "      + getStatus());
@@ -116,6 +125,10 @@ public class Item {
         return donor;
     }
 
+    public Charity getCharity(){
+        return charity;
+    }
+
     // checks that the person is a donor and casts this person as the donor 
 
     public void setDonor(Person person) {
@@ -133,5 +146,6 @@ public class Item {
     public Buyer getBuyer() {
         return buyer;
     }
+
 
 }

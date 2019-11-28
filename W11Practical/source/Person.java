@@ -6,7 +6,7 @@ import static java.util.Calendar.MONTH;
 /**
  * Person
  */
-public class Person {
+public abstract class Person {
 
     protected String name;
     protected String address;

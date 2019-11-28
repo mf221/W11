@@ -7,6 +7,7 @@ public class Buyer extends Person{
                                    // so balance set to 0 if unknown, and translated in printDetails
     private double maxAuctionBid;  // if never bid before, maxAuctionBid is set to 0 and translated in printDetails
     private double bid;
+    private Item itemToBuy;
 
     public Buyer(String name, String address, int year, int month, int day, 
                  double accountBalance, double maxAuctionBid){
@@ -58,8 +59,26 @@ public class Buyer extends Person{
         return maxAuctionBid;
     }
 
-    public void placeBid(double bid){
+    public void placeBid(double bid, Book item){
         this.bid = bid;
+        this.itemToBuy = item;
+        
+    }
+
+    public void placeBid(double bid, Jewellery item){
+        this.bid = bid;
+        this.itemToBuy = item;
+        
+    }
+
+    public void placeBid(double bid, Artwork item){
+        this.bid = bid;
+        this.itemToBuy = item;
+        
+    }
+
+    public double getBid(){
+        return bid;
     }
 
     public void setMaxBid(double maxAuctionBid){

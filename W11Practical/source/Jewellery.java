@@ -13,29 +13,29 @@ public class Jewellery extends Item{
         this.composition = "unknown";
     }
 
-    public Jewellery(String name){
-        super(name);
+    public Jewellery(String name, Charity charity){
+        super(name,charity);
         this.description = "unknown";
         this.composition = "unknown";
     }
 
-    public Jewellery(String name, String composition){
-        super(name);
+    public Jewellery(String name, Charity charity, String composition){
+        super(name, charity);
         this.description = "unknown";
         this.composition = composition;
     }
 
     public Jewellery(String name, double startPrice, double reserveValue,
-                     String status, Donor donor, Buyer buyer){
-        super(name,startPrice,reserveValue,status,donor,buyer);
+                     String status, Donor donor, Buyer buyer, Charity charity){
+        super(name,startPrice,reserveValue,status,donor,buyer, charity);
         this.description = "unknown";
         this.composition = "unknown";
     }
 
     
     public Jewellery(String name, double startPrice, double reserveValue,String status, 
-                     Donor donor, Buyer buyer, String composition){
-        super(name,startPrice,reserveValue,status,donor,buyer);
+                     Donor donor, Buyer buyer, Charity charity, String composition){
+        super(name,startPrice,reserveValue,status,donor,buyer,charity);
         this.description = "unknown";
         this.composition = composition;
     }
@@ -44,8 +44,8 @@ public class Jewellery extends Item{
         super(name, startPrice, reserveValue);
     }
 
-    //description is set separate to the constructor, as this could be quite
-    //long and inconvenient in a constructor
+    //description is set separate to the constructor, as this 
+    //could be quite long and inconvenient in a constructor
 
     public void setDescription(String description){
         this.description = description;

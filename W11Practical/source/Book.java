@@ -12,42 +12,41 @@ public class Book extends Item{
         this.author  = null;
     }
 
-    public Book(String name){
-        super(name);
+    public Book(String name, Charity charity){
+        super(name, charity);
         this.edition = 0;
         this.author  = null;
     }
 
-    public Book(String name, int edition, Author author){
-        super(name);
+    public Book(String name, Charity charity, int edition, Author author){
+        super(name, charity);
         this.edition = edition;
         this.author  = author;
     }
 
-    public Book(String name, int edition){
-        super(name);
+    public Book(String name, Charity charity, int edition){
+        super(name, charity);
         this.edition = edition;
         this.author  = null;
     }
 
-
-    public Book(String name, Author author){
-        super(name);
+    public Book(String name, Charity charity, Author author){
+        super(name, charity);
         this.edition = 0;
         this.author  = author;
     }
 
     public Book(String name, double startPrice, double reserveValue,
-    String status, Donor donor, Buyer buyer, int edition, Author author){
-        super(name,startPrice,reserveValue,status,donor,buyer);
+    String status, Donor donor, Buyer buyer, Charity charity, int edition, Author author){
+        super(name,startPrice,reserveValue,status,donor,buyer,charity);
         this.edition = edition;
         this.author  = author;
+        this.charity = charity;
     }
 
-
     public Book(String name, double startPrice, double reserveValue,
-    String status, Donor donor, Buyer buyer){
-        super(name,startPrice,reserveValue,status,donor,buyer);
+    String status, Donor donor, Buyer buyer, Charity charity){
+        super(name,startPrice,reserveValue,status,donor,buyer,charity);
         this.edition = 0;
         this.author  = null;
     }
